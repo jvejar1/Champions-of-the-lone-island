@@ -10,6 +10,14 @@ public class PlayerBehaviour : NetworkBehaviour
     void Start()
     {
         
+        //set that the camera must follow the behaviour of the player transform
+        if (isLocalPlayer) {
+            Cursor.lockState = CursorLockMode.Locked;
+            Camera.main.transform.position = this.transform.position - this.transform.forward * 6 + this.transform.up * 3;
+            Camera.main.transform.LookAt(this.transform.position);
+            Camera.main.transform.parent = this.transform;
+        }
+
     }
 
     void Update()
@@ -19,7 +27,6 @@ public class PlayerBehaviour : NetworkBehaviour
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
             CmdMove(moveHorizontal, moveVertical);
-
         }
 
      
