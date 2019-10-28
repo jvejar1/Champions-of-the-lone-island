@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 950, y: 548}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 63
+  controlID: 12
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 64
+  controlID: 84
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -462,7 +462,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 8622ffffa822ffff2e24ffff3a24ffff7e27ffffa227ffff2829ffff3429ffffc436ffffe636ffff5e38ffff6a38ffffce3bfffff63bffff704effff924effff1a50ffff2650ffff685dffff8a5dffff125fffff1e5fffffa6a9ffffd4fbffff
+      m_ExpandedIDs: 62dbffff84dbffff0addffff16ddffffd4e2fffff6e2ffff7ce4ffff88e4ffff40e8ffff62e8ffffe8e9fffff4e9ffff96f1ffffb8f1ffff3ef3ffff4af3ffffeef9ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -556,14 +556,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Player
   m_LastFoldersGridSize: 96
-  m_LastProjectPath: D:\Unity Projects\Champions of the Lone Island\Champions-of-the-lone-island
+  m_LastProjectPath: D:\Unity Projects\Champs of the Lone Island 2.0\Champions-of-the-lone-island
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 16270000
-    m_LastClickedID: 10006
-    m_ExpandedIDs: 000000002c26000000ca9a3b
+    m_SelectedIDs: 382c0000
+    m_LastClickedID: 11320
+    m_ExpandedIDs: 000000004e2b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -591,7 +591,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002c260000
+    m_ExpandedIDs: 000000004e2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

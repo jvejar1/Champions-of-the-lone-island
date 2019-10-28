@@ -5,8 +5,12 @@ using UnityEngine.Networking;
 
 public class PlayerAttack : NetworkBehaviour
 {
-    public bool collided;
+    [SyncVar] public bool collided;
     public GameObject enemy;
+
+    [SyncVar] public float cooldown = 1;
+    [SyncVar] public float cooldownTimer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +24,13 @@ public class PlayerAttack : NetworkBehaviour
         {
             if (collided)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && (cooldownTimer == 0))
                 {
-                    enemy.GetComponent<PlayerResources>().CmdRecieveDamage(1);
+                    CmdDoDamage(cooldown);
                 }
             }
+
+            CmdCooldown();
         }
     }
 
@@ -45,6 +51,28 @@ public class PlayerAttack : NetworkBehaviour
             Debug.Log("Stopped Colliding");
             collided = false;
             enemy = null;
+        }
+    }
+
+    [Command]
+    void CmdDoDamage(float cooldown)
+    {
+        enemy.GetComponent<PlayerResources>().CmdRecieveDamage(1);
+        this.GetComponent<PlayerResources>().SpendAP(4);
+        cooldownTimer = cooldown;
+    }
+
+    [Command]
+    void CmdCooldown()
+    {
+        if (cooldownTimer < 0)
+        {
+            cooldownTimer = 0;
+        }
+
+        if (cooldownTimer > 0)
+        {
+            cooldownTimer -= Time.deltaTime;
         }
     }
 }

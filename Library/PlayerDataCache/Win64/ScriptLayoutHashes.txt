@@ -1,6 +1,6 @@
 Win64
 PlayerPath?
-D:/Unity Projects/Champions of the Lone Island/Champions of the Lone Island.exe
+D:/Unity Projects/Champs of the Lone Island 2.0/Champions of the Lone Island.exe
 SceneListBegin?
 Assets/Scenes/Title.unity
 Assets/Scenes/Forest.unity
@@ -85,6 +85,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+4c29a7e0f40dfa04bb2c65c15c4da6fa Assembly-CSharp.dll:.PlayerAttack
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 780e8f682b3221346c034a6712a0fd25 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -162,4 +163,3 @@ d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 64ef40d6f8e72887b36fd07d1b0bedfb Assembly-CSharp.dll:.PlayerRotation
-976b871aee113004c010b66a4ce49ee6 Assembly-CSharp.dll:.PlayerAttack
