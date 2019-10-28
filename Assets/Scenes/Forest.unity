@@ -467,7 +467,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1001 &686054323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,7 +1088,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a87b0e789e67d4e9a5a3d058c5d97f, type: 3}
-=======
 --- !u!1 &1061839642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1237,6 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
->>>>>>> f9c83a094f7810d27b9fcddb9025c5d4fde67a8f
 --- !u!20 &6250318077331557564
 Camera:
   m_ObjectHideFlags: 0
