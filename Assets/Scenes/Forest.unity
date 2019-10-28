@@ -1102,9 +1102,11 @@ GameObject:
   - component: {fileID: 1061839645}
   - component: {fileID: 1061839644}
   - component: {fileID: 1061839643}
+  - component: {fileID: 1061839648}
+  - component: {fileID: 1061839647}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Player
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1181,7 +1183,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> 8b9ee512585da9cb1852868cbafc739c1df9d345
+--- !u!114 &1061839647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061839642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e046a51295f3d419e297f21a637557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: 0
+  playerAP: 0
+  playerSP: 0
+  playerMaxHP: 10
+  playerMaxAP: 10
+  playerMaxSP: 3
+  isDead: 0
+  PlayerUI: {fileID: 0}
+  HPBar: {fileID: 0}
+  APBar: {fileID: 0}
+  SPBar: {fileID: 0}
+--- !u!114 &1061839648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061839642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+>>>>>>> f9c83a094f7810d27b9fcddb9025c5d4fde67a8f
 --- !u!20 &6250318077331557564
 Camera:
   m_ObjectHideFlags: 0
