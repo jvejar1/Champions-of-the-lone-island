@@ -25,13 +25,13 @@ public class PlayerResources : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerHP = playerMaxHP;
+        playerAP = playerMaxAP;
+        playerSP = playerMaxSP;
+
         if (isLocalPlayer)
         {
             PlayerUI.SetActive(true);
-
-            playerHP = playerMaxHP;
-            playerAP = playerMaxAP;
-            playerSP = playerMaxSP;
 
             InvokeRepeating("CmdAPRegen", 1f, 1f);  //1s delay, repeat every 1s
 
