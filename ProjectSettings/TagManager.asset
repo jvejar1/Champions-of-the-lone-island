@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Hazard
+  - NetworkContainer
   layers:
   - Default
   - TransparentFX
