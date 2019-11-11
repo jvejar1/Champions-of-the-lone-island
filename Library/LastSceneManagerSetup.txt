@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Title.unity
+- path: Assets/Scenes/Scoring.unity
   isLoaded: 1
   isActive: 0
 - path: Assets/Scenes/Forest.unity

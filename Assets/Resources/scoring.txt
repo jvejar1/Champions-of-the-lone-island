@@ -1,0 +1,3 @@
+name 10
+juan 9
+pedro 1
