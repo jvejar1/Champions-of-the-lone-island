@@ -29,7 +29,7 @@ public class PlayerBehaviour : NetworkBehaviour
     void Update()
     {
         if (isLocalPlayer) {
-
+            //Movement
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
 

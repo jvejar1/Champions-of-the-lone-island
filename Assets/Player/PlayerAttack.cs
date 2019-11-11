@@ -11,7 +11,7 @@ public class PlayerAttack : NetworkBehaviour
     [SyncVar] public float cooldown = 1;
     [SyncVar] public float cooldownTimer;
 
-    [SyncVar] public float cooldown2 = 2f;
+    [SyncVar] public float cooldown2 = 2;
     [SyncVar] public float cooldownTimer2;
 
     Animator anim;
@@ -27,19 +27,22 @@ public class PlayerAttack : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            if (cooldownTimer2 == 0 && anim.GetInteger("Condition") == 2)
+            float sp = GetComponent<PlayerResources>().playerSP;
+            float ap = GetComponent<PlayerResources>().playerAP;
+
+            //Ataque Normal
+            if (cooldownTimer2 <= 0 && anim.GetInteger("Condition") == 2)
             {
                 Debug.Log("Entro!");
                 anim.SetInteger("Condition", 0);
             }
-
             if (collided)
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0) && (cooldownTimer == 0))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && (cooldownTimer == 0) && ap >= 4)
                 {
                     if (anim.GetBool("Running") == false)
                     {
-                        CmdDoDamage(cooldown);
+                        CmdDoDamage(1, 1, 4);
                         anim.SetInteger("Condition", 2);
                         cooldownTimer2 = cooldown2;
                     }
@@ -47,20 +50,78 @@ public class PlayerAttack : NetworkBehaviour
             }
             else
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0) && (cooldownTimer == 0))
+                if (Input.GetKeyDown(KeyCode.Mouse0) && (cooldownTimer == 0) && ap >= 4)
                 {
                     if (anim.GetBool("Running") == false)
                     {
+                        CmdDoDamageConsumeAP(1, 4);
                         anim.SetInteger("Condition", 2);
                         cooldownTimer2 = cooldown2;
                     }
                 }
             }
 
+            //Ataque Especial 1
+            if (collided)
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse1) && (cooldownTimer == 0) && ap >= 6)
+                {
+                    if (anim.GetBool("Running") == false)
+                    {
+                        CmdDoDamage(2, 2, 6);
+                        anim.SetInteger("Condition", 3);
+                        cooldownTimer2 = cooldown2;
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse1) && (cooldownTimer == 0) && ap >= 6)
+                {
+                    if (anim.GetBool("Running") == false)
+                    {
+                        CmdDoDamageConsumeAP(2, 6);
+                        anim.SetInteger("Condition", 3);
+                        cooldownTimer2 = cooldown2;
+                    }
+                }
+            }
+
+            //Ataque Especial 2
+            if (collided)
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) && (cooldownTimer == 0) && sp >= 3)
+                {
+                    if (anim.GetBool("Running") == false)
+                    {
+                        CmdDoDamageConsumeSP(0, 3);
+                        CmdDoDamage(3, 3, 0);
+                        anim.SetInteger("Condition", 4);
+                        cooldownTimer2 = cooldown2;
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Alpha1) && (cooldownTimer == 0) && sp >= 3)
+                {
+                    if (anim.GetBool("Running") == false)
+                    {
+                        CmdDoDamageConsumeSP(3, 3);
+                        anim.SetInteger("Condition", 4);
+                        cooldownTimer2 = cooldown2;
+                    }
+                }
+            }
+
+
+
             Debug.Log("Condition: " + anim.GetInteger("Condition"));
 
             CmdCooldown();
             CmdCooldown2();
+
+            Debug.Log("Cooldown: " + cooldownTimer);
         }
     }
 
@@ -85,10 +146,22 @@ public class PlayerAttack : NetworkBehaviour
     }
 
     [Command]
-    void CmdDoDamage(float cooldown)
+    void CmdDoDamage(float cooldown, float damage, int ap)
     {
-        enemy.GetComponent<PlayerResources>().CmdRecieveDamage(1);
-        this.GetComponent<PlayerResources>().SpendAP(4);
+        enemy.GetComponent<PlayerResources>().CmdRecieveDamage(damage);
+        this.GetComponent<PlayerResources>().SpendAP(ap);
+        cooldownTimer = cooldown;
+    }
+
+    void CmdDoDamageConsumeAP(float cooldown, int ap)
+    {
+        this.GetComponent<PlayerResources>().SpendAP(ap);
+        cooldownTimer = cooldown;
+    }
+
+    void CmdDoDamageConsumeSP(float cooldown, int sp)
+    {
+        this.GetComponent<PlayerResources>().SpendSP(sp);
         cooldownTimer = cooldown;
     }
 
@@ -116,7 +189,7 @@ public class PlayerAttack : NetworkBehaviour
 
         if (cooldownTimer2 > 0)
         {
-            cooldownTimer2 -= Time.deltaTime;
+            cooldownTimer2 -= 0.1f*Time.deltaTime;
         }
     }
 }

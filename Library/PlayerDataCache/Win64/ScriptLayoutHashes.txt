@@ -1,10 +1,6 @@
 Win64
 PlayerPath?
-<<<<<<< HEAD
-D:/Unity Dump/3Kingdoms/Champions-of-the-lone-island/Champions of the Lone Island.exe
-=======
-D:/Unity Projects/Testing 2.0/Champions of the Lone Island.exe
->>>>>>> ad1f9ad13e507e126ce2e0af87659b3d5fdfa8f0
+D:/Unity Projects/Testing 1.0/Champions of the Lone Island.exe
 SceneListBegin?
 Assets/Scenes/Title.unity
 Assets/Scenes/Forest.unity
@@ -139,6 +135,7 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TableHandler
 51516d96aae1b51e74237ba856f0bc07 Assembly-CSharp.dll:.ThirdPersonCameraController
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator

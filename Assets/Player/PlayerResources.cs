@@ -12,7 +12,7 @@ public class PlayerResources : NetworkBehaviour
 
     public float playerMaxHP = 10;
     public float playerMaxAP = 10;
-    public float playerMaxSP = 3;
+    public float playerMaxSP = 10;
 
     public bool isDead = false;
 
@@ -34,6 +34,7 @@ public class PlayerResources : NetworkBehaviour
             PlayerUI.SetActive(true);
 
             InvokeRepeating("CmdAPRegen", 1f, 1f);  //1s delay, repeat every 1s
+            InvokeRepeating("CmdSPRegen", 3f, 3f);  //3s delay, repeat every 3s
 
             HPBar.value = CalculateHPPct();
             APBar.value = CalculateAPPct();
@@ -87,6 +88,15 @@ public class PlayerResources : NetworkBehaviour
         if (playerAP < playerMaxAP)
         {
             playerAP += 1;
+        }
+    }
+
+    [Command]
+    public void CmdSPRegen()
+    {
+        if (playerSP < playerMaxSP)
+        {
+            playerSP += 1;
         }
     }
 
