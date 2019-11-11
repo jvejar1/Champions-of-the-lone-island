@@ -17,11 +17,9 @@ public class Jump : NetworkBehaviour
     void OnCollisionEnter(Collision col)
     {
 
-        Debug.Log("Collision Enter");
         if (col.gameObject.tag == ("Ground") && isGrounded == false)
         {
 
-            Debug.Log("Collision with 'Ground' tag");
             isGrounded = true;
         }
 

@@ -11,10 +11,15 @@ public class PlayerAttack : NetworkBehaviour
     [SyncVar] public float cooldown = 1;
     [SyncVar] public float cooldownTimer;
 
+    [SyncVar] public float cooldown2 = 2f;
+    [SyncVar] public float cooldownTimer2;
+
+    Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,15 +27,40 @@ public class PlayerAttack : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
+            if (cooldownTimer2 == 0 && anim.GetInteger("Condition") == 2)
+            {
+                Debug.Log("Entro!");
+                anim.SetInteger("Condition", 0);
+            }
+
             if (collided)
             {
                 if (Input.GetKeyDown(KeyCode.Mouse0) && (cooldownTimer == 0))
                 {
-                    CmdDoDamage(cooldown);
+                    if (anim.GetBool("Running") == false)
+                    {
+                        CmdDoDamage(cooldown);
+                        anim.SetInteger("Condition", 2);
+                        cooldownTimer2 = cooldown2;
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetKeyDown(KeyCode.Mouse0) && (cooldownTimer == 0))
+                {
+                    if (anim.GetBool("Running") == false)
+                    {
+                        anim.SetInteger("Condition", 2);
+                        cooldownTimer2 = cooldown2;
+                    }
                 }
             }
 
+            Debug.Log("Condition: " + anim.GetInteger("Condition"));
+
             CmdCooldown();
+            CmdCooldown2();
         }
     }
 
@@ -73,6 +103,20 @@ public class PlayerAttack : NetworkBehaviour
         if (cooldownTimer > 0)
         {
             cooldownTimer -= Time.deltaTime;
+        }
+    }
+
+    [Command]
+    void CmdCooldown2()
+    {
+        if (cooldownTimer2 < 0)
+        {
+            cooldownTimer2 = 0;
+        }
+
+        if (cooldownTimer2 > 0)
+        {
+            cooldownTimer2 -= Time.deltaTime;
         }
     }
 }

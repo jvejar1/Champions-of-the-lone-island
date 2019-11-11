@@ -27,7 +27,6 @@ public class PlayerRotation : NetworkBehaviour
         mouseX += Input.GetAxis("Mouse X") * RotationSpeed;
         mouseY -= Input.GetAxis("Mouse Y") * RotationSpeed;
        
-        Debug.Log("Is Local Player " + mouseX.ToString()+","+mouseY.ToString());
         CmdRotatePlayer(mouseX, mouseY);
         
     }
