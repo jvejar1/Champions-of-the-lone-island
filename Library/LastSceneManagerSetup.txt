@@ -1,7 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Scoring.unity
-  isLoaded: 1
-  isActive: 0
-- path: Assets/Scenes/Forest.unity
+- path: Assets/Scenes/Title.unity
   isLoaded: 1
   isActive: 1
