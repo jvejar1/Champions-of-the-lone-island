@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 5572248703053735858}
   - component: {fileID: 5357901884038900072}
   - component: {fileID: 7891122236495016239}
+  - component: {fileID: 7627542960158743947}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -378,6 +379,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collided: 0
   enemy: {fileID: 0}
+  cooldown: 1
+  cooldownTimer: 0
+--- !u!114 &7627542960158743947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5572248703053735859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c600b9cbcd367b40b91300640bb3a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5572248704225492532
 GameObject:
   m_ObjectHideFlags: 0

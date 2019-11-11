@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using ScoringSystem;
 
 public class TableHandler : MonoBehaviour
 {
@@ -13,7 +14,14 @@ public class TableHandler : MonoBehaviour
     private Transform entryTemplate;
 
     void Awake() {
-        List<List<string>> scoringEntries = ReadScoringFromFile();
+        List<List<string>> scoringEntries = new List<List<string>>();
+        foreach (KeyValuePair<string, int> item in Score.scores)
+        {
+
+            List<string> scoringEntry = new List<string> {item.Key.ToString(), item.Value.ToString() };
+            scoringEntries.Add(scoringEntry);
+            Debug.Log("Key: "+ item.Key+ " Value: "+ item.Value);
+        }
         FillTable(scoringEntries);
     }
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
+using ScoringSystem;
 public class PlayerResources : NetworkBehaviour
 {
     [SyncVar] public float playerHP;
@@ -14,7 +15,8 @@ public class PlayerResources : NetworkBehaviour
     public float playerMaxAP = 10;
     public float playerMaxSP = 3;
 
-    public bool isDead = false;
+
+    [SyncVar] public bool isDead = false;
 
     public GameObject PlayerUI;
 
@@ -29,6 +31,8 @@ public class PlayerResources : NetworkBehaviour
         playerAP = playerMaxAP;
         playerSP = playerMaxSP;
 
+        //SceneManager.UnloadScene("Forest");
+
         if (isLocalPlayer)
         {
             PlayerUI.SetActive(true);
@@ -38,23 +42,66 @@ public class PlayerResources : NetworkBehaviour
             HPBar.value = CalculateHPPct();
             APBar.value = CalculateAPPct();
             SPBar.value = CalculateSPPct();
+
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        
+
         if (isLocalPlayer)
         {
+            //SceneManager.UnloadSceneAsync("Forest");
+
             if (playerHP <= 0)
             {
-                isDead = true;
+                CmdKill();
+                SceneManager.LoadScene("Scoring", LoadSceneMode.Single);
+
             }
+
 
             HPBar.value = CalculateHPPct();
             APBar.value = CalculateAPPct();
             SPBar.value = CalculateSPPct();
         }
+    }
+
+
+   [Command]
+    void CmdKill() {
+        isDead = true;
+        //animation to dead
+        //get Winner
+        GameObject[] playerGameObjects = GameObject.FindGameObjectsWithTag("Player");
+        List<GameObject> alivePlayers = new List<GameObject>();
+        foreach (GameObject playerGameObject in playerGameObjects) {
+            bool isAlive = !playerGameObject.GetComponent<PlayerResources>().isDead;
+            if (isAlive)
+            {
+                alivePlayers.Add(playerGameObject);
+            }
+            Debug.Log(playerGameObject.GetComponent<PlayerResources>().isDead);
+        }
+
+        bool oneAliveLeft = alivePlayers.Count == 1;
+
+        if (oneAliveLeft) {
+            //manage the winner
+            GameObject winner = alivePlayers[0];
+            Score.scores[GetComponent<NetworkIdentity>().netId.ToString()] = Score.scores[GetComponent<NetworkIdentity>().netId.ToString()] + 1;
+
+            //NetworkManager.singleton.StopHost();
+            Debug.Log("have winner!");
+        }
+
+        Debug.Log("There are " + alivePlayers.Count +" alive left");
+
+
     }
 
     public float CalculateHPPct()
