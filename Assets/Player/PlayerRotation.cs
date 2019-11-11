@@ -37,7 +37,7 @@ public class PlayerRotation : NetworkBehaviour
     void CmdRotatePlayer(float mouseX, float mouseY) {
 
         Debug.Log("Rotating");
-        this.transform.rotation = Quaternion.Euler(0, mouseX, 0);
+        this.transform.rotation = Quaternion.Euler(mouseY, mouseX, 0);
        
 
     }
