@@ -19,10 +19,24 @@ public class PlayerAttack : NetworkBehaviour
     public GameObject normalArrow;
     public Transform ArrowSpawn;
 
+    //Sounds
+    public AudioSource audioSource;
+    public AudioSource audioSource2;
+
+    public AudioClip music;
+    public AudioClip footSteps;
+    public AudioClip whoosh;
+    public AudioClip arrow;
+    public AudioClip fireball;
+
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        audioSource.clip = music;
+        audioSource.Play();
     }
 
     // Update is called once per frame
@@ -32,6 +46,12 @@ public class PlayerAttack : NetworkBehaviour
         {
             float sp = GetComponent<PlayerResources>().playerSP;
             float ap = GetComponent<PlayerResources>().playerAP;
+
+            if(anim.GetBool("Running") == true && !audioSource2.isPlaying)
+            {
+                audioSource2.clip = footSteps;
+                audioSource2.Play();
+            }
 
             //Ataque Normal
             if (cooldownTimer2 <= 0 && anim.GetInteger("Condition") == 2)
@@ -48,6 +68,8 @@ public class PlayerAttack : NetworkBehaviour
                         CmdDoDamage(1, 1, 4);
                         anim.SetInteger("Condition", 2);
                         cooldownTimer2 = cooldown2;
+                        audioSource2.clip = whoosh;
+                        audioSource2.Play();
                     }
                 }
             }
@@ -60,6 +82,8 @@ public class PlayerAttack : NetworkBehaviour
                         CmdDoDamageConsumeAP(1, 4);
                         anim.SetInteger("Condition", 2);
                         cooldownTimer2 = cooldown2;
+                        audioSource2.clip = whoosh;
+                        audioSource2.Play();
                     }
                 }
             }
@@ -73,6 +97,8 @@ public class PlayerAttack : NetworkBehaviour
                     CmdFireArrow(2, 6);
                     anim.SetInteger("Condition", 3);
                     cooldownTimer2 = cooldown2;
+                    audioSource2.clip = fireball;
+                    audioSource2.Play();
                 }
             }
 
@@ -87,6 +113,8 @@ public class PlayerAttack : NetworkBehaviour
                         CmdDoDamage(3, 3, 0);
                         anim.SetInteger("Condition", 4);
                         cooldownTimer2 = cooldown2;
+                        audioSource2.clip = whoosh;
+                        audioSource2.Play();
                     }
                 }
             }
@@ -99,6 +127,8 @@ public class PlayerAttack : NetworkBehaviour
                         CmdDoDamageConsumeSP(3, 3);
                         anim.SetInteger("Condition", 4);
                         cooldownTimer2 = cooldown2;
+                        audioSource2.clip = whoosh;
+                        audioSource2.Play();
                     }
                 }
             }
