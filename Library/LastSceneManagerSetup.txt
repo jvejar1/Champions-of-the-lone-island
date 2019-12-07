@@ -1,4 +1,10 @@
 sceneSetups:
 - path: Assets/Scenes/Title.unity
   isLoaded: 1
+  isActive: 0
+- path: Assets/Scenes/Forest.unity
+  isLoaded: 1
+  isActive: 0
+- path: Assets/Scenes/SceneSelection.unity
+  isLoaded: 1
   isActive: 1

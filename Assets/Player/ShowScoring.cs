@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Networking;
-using ScoringSystem;
 public class ShowScoring : NetworkBehaviour
 {
     // Start is called before the first frame update
 
     bool showingScoringScene = false;
+
+    public GameObject scoreCanvas;
+    public GameObject cloneScoreCanvas;
     void Start()
     {
-        CmdAddScoreToTable();
     }
 
-
-    [Command]
-    void CmdAddScoreToTable()
+    void Hide()
     {
 
-        Score.scores.Add(GetComponent<NetworkIdentity>().netId.ToString(), 0);
+
+        DestroyImmediate(cloneScoreCanvas,true );
+    }
+    void Show()
+    {
+
+        cloneScoreCanvas = (GameObject)Instantiate(scoreCanvas, transform.position, Quaternion.identity);
 
     }
 
-    void displayScoreTitle() {
-        
-       
-    }
+
     // Update is called once per frame
     void Update()
     {
@@ -41,12 +43,12 @@ public class ShowScoring : NetworkBehaviour
             Debug.Log("Tab pressed");
             if (showingScoringScene)
             {
-                SceneManager.UnloadScene("Scoring");
+                Hide();
                 showingScoringScene = false;
             }
             else
             {
-                SceneManager.LoadScene("Scoring", LoadSceneMode.Additive);
+                Show();
                 showingScoringScene = true;
 
             }
