@@ -34,6 +34,7 @@ public class SceneSelectionConfiguration : MonoBehaviour
         Debug.Log("Destroy SceneSelection");
 
        //set player to movil
+        localPlayer.SetActive(true);
         
     }
 

@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 public class Jump : NetworkBehaviour
 {
     // Start is called before the first frame update
-    public float jumpSpeed = 5f;//or whatever you want it to be
+    public float jumpSpeed = 10f;//or whatever you want it to be
     public Rigidbody rb; //and again, whatever you want to call it
     public bool isGrounded;
     void Start()
