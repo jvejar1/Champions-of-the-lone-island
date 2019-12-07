@@ -20,9 +20,10 @@ public class PlayerBehaviour : NetworkBehaviour
             Camera.main.transform.LookAt(this.transform.position);
             Camera.main.transform.parent = this.transform;
 
-            controller = GetComponent<CharacterController>();
+            
             anim = GetComponent<Animator>();
         }
+        controller = GetComponent<CharacterController>();
 
     }
 

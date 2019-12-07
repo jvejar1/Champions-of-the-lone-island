@@ -1,14 +1,19 @@
 Win64
 PlayerPath?
 <<<<<<< HEAD
+<<<<<<< HEAD
 D:/Unity Dump/3Kingdoms/Test/Champions of the Lone Island.exe
 =======
 D:/Unity Projects/Testing Final/Champions of the Lone Island.exe
 >>>>>>> 3b865db150ca1a4fcb7270b098345907022414b7
+=======
+C:/Users/e480/Desktop/disco duro/unity_projects/Champions-of-the-lone-island/Builds/Champions of the Lone Island.exe
+>>>>>>> 9765d3bd3e5461a05aa742dd3de1c97276845398
 SceneListBegin?
 Assets/Scenes/Title.unity
 Assets/Scenes/Forest.unity
 Assets/Scenes/Scoring.unity
+Assets/Scenes/SceneSelection.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -143,6 +148,7 @@ ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networki
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TableHandler
 51516d96aae1b51e74237ba856f0bc07 Assembly-CSharp.dll:.ThirdPersonCameraController
+bfdf060b2603148594c3c06838d1c1db Assembly-CSharp.dll:.PlayerStatus
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -174,19 +180,25 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ScoreManager
 ee0cef6caaac8ae485bfa82f000f0f7b Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 afc5b93a7b192de2dcb3832fe35a5c7e Assembly-CSharp.dll:.PlayerBehaviour
 9e3b84b7fb545d9cca2edfd256566fa9 Assembly-CSharp.dll:.Jump
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ShowScoring
+308e693b106b0ad127200956130cdcaa Assembly-CSharp.dll:.ShowScoring
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 5372ed2ce39229b1ac910757999a8be2 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 64ef40d6f8e72887b36fd07d1b0bedfb Assembly-CSharp.dll:.PlayerRotation
 <<<<<<< HEAD
+<<<<<<< HEAD
 47a0a94801e9fe7fc22c34e8fe0b17ce Assembly-CSharp.dll:.DamagePlayer
 =======
 941fd47ae32b55e513a99bbff9a8eaa3 Assembly-CSharp.dll:.Behaviour
 >>>>>>> 3b865db150ca1a4fcb7270b098345907022414b7
+=======
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SceneSelection
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SceneManagement
+>>>>>>> 9765d3bd3e5461a05aa742dd3de1c97276845398

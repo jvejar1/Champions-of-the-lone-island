@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
-using ScoringSystem;
 
 public class TableHandler : MonoBehaviour
 {
@@ -15,9 +14,16 @@ public class TableHandler : MonoBehaviour
 
     void Awake() {
         List<List<string>> scoringEntries = new List<List<string>>();
-        foreach (KeyValuePair<string, int> item in Score.scores)
+        GameObject gameController = GameObject.FindWithTag("GameController") as GameObject;
+        if (gameController == null)
         {
+            return;
+        }
+        ScoreManager scoreManager= gameController.GetComponent<ScoreManager>();
 
+      
+        foreach (KeyValuePair<string, int> item in scoreManager.GetDict())
+        {
             List<string> scoringEntry = new List<string> {item.Key.ToString(), item.Value.ToString() };
             scoringEntries.Add(scoringEntry);
             Debug.Log("Key: "+ item.Key+ " Value: "+ item.Value);

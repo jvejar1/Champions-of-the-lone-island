@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using ScoringSystem;
 public class PlayerResources : NetworkBehaviour
 {
     [SyncVar] public float playerHP;
@@ -24,6 +23,17 @@ public class PlayerResources : NetworkBehaviour
     public Slider APBar;
     public Slider SPBar;
 
+
+    void Awake()
+    {
+
+
+        if (isLocalPlayer) {
+
+
+            CmdRegisterPlayer();
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +54,17 @@ public class PlayerResources : NetworkBehaviour
             APBar.value = CalculateAPPct();
             SPBar.value = CalculateSPPct();
 
+            CmdRegisterPlayer();
+            
         }
+    }
+
+    [Command]
+    void CmdRegisterPlayer()
+    {
+        GameObject gameController = GameObject.FindWithTag("GameController");
+        ScoreManager scoreManager = gameController.GetComponent<ScoreManager>();
+        scoreManager.CmdRegisterNewPlayer(this.gameObject);
     }
 
     // Update is called once per frame
@@ -52,8 +72,13 @@ public class PlayerResources : NetworkBehaviour
     {
 
 
-        
 
+
+        if (isDead)
+        {
+
+            return;
+        }
         if (isLocalPlayer)
         {
             //SceneManager.UnloadSceneAsync("Forest");
@@ -62,7 +87,7 @@ public class PlayerResources : NetworkBehaviour
             {
                 CmdKill();
                 SceneManager.LoadScene("Scoring", LoadSceneMode.Single);
-
+                Debug.Log("LOADED SCORING");
             }
 
 
@@ -94,8 +119,12 @@ public class PlayerResources : NetworkBehaviour
         if (oneAliveLeft) {
             //manage the winner
             GameObject winner = alivePlayers[0];
-            Score.scores[GetComponent<NetworkIdentity>().netId.ToString()] = Score.scores[GetComponent<NetworkIdentity>().netId.ToString()] + 1;
 
+            GameObject gameController = GameObject.FindWithTag("GameController");
+            ScoreManager scoreManager = gameController.GetComponent<ScoreManager>();
+            scoreManager.CmdIncreaseScoreByOne(winner);
+            
+            //FScoreManager.scores[GetComponent<NetworkIdentity>().netId.ToString()] = ScoreManager.GetInstance().scores[GetComponent<NetworkIdentity>().netId.ToString()] + 1;
             //NetworkManager.singleton.StopHost();
             Debug.Log("have winner!");
         }
