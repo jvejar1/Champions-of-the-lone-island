@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -393,13 +393,14 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 5572248703053735859, guid: 51bf3d418eed8a54b8f4b92174c3bc55,
+  m_PlayerPrefab: {fileID: 5572248703053735859, guid: 79acb9c4738e8a04c89617791a6c480a,
     type: 3}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: Title
   m_OnlineScene: Forest
-  m_SpawnPrefabs: []
+  m_SpawnPrefabs:
+  - {fileID: 2632665784449476091, guid: f48fad0f8a3e114498ab5883d7db4b43, type: 3}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
