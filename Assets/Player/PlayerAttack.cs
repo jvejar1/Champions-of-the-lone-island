@@ -16,6 +16,9 @@ public class PlayerAttack : NetworkBehaviour
 
     Animator anim;
 
+    public GameObject normalArrow;
+    public Transform ArrowSpawn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,28 +65,14 @@ public class PlayerAttack : NetworkBehaviour
             }
 
             //Ataque Especial 1
-            if (collided)
+            
+            if (Input.GetKeyDown(KeyCode.Mouse1) && (cooldownTimer == 0) && ap >= 6)
             {
-                if (Input.GetKeyDown(KeyCode.Mouse1) && (cooldownTimer == 0) && ap >= 6)
+                if (anim.GetBool("Running") == false)
                 {
-                    if (anim.GetBool("Running") == false)
-                    {
-                        CmdDoDamage(2, 2, 6);
-                        anim.SetInteger("Condition", 3);
-                        cooldownTimer2 = cooldown2;
-                    }
-                }
-            }
-            else
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse1) && (cooldownTimer == 0) && ap >= 6)
-                {
-                    if (anim.GetBool("Running") == false)
-                    {
-                        CmdDoDamageConsumeAP(2, 6);
-                        anim.SetInteger("Condition", 3);
-                        cooldownTimer2 = cooldown2;
-                    }
+                    CmdFireArrow(2, 6);
+                    anim.SetInteger("Condition", 3);
+                    cooldownTimer2 = cooldown2;
                 }
             }
 
@@ -191,5 +180,16 @@ public class PlayerAttack : NetworkBehaviour
         {
             cooldownTimer2 -= 0.1f*Time.deltaTime;
         }
+    }
+
+    [Command]
+    void CmdFireArrow(float cooldown, int ap)
+    {
+        this.GetComponent<PlayerResources>().SpendAP(ap);
+        cooldownTimer = cooldown;
+
+        GameObject bullet = Instantiate(normalArrow, ArrowSpawn.position, ArrowSpawn.rotation);
+        bullet.transform.Rotate(0, 90, 0);
+        NetworkServer.Spawn(normalArrow);
     }
 }
